@@ -43,7 +43,7 @@ export default function Home() {
     <div className='absolute w-[350px] sm:w-fit h-fit
     bg-white/10 rounded-3xl p-6'>
         
-        <div className='flex flex-col space-y-5 items-center justify-between h-full'>
+        <div className='flex flex-col space-y-5 items-center justify-between h-full py-20 sm:py-2'>
             <p className='bg-clip-text text-transparent 
             bg-gradient-to-b from-white to-red-800/40
             text-3xl '

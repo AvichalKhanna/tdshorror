@@ -62,7 +62,7 @@ export default function PlayerList({
 
         {/* Title Text */}
         <motion.p 
-          className="text-3xl font-bold text-red-500 text-center flicker"
+          className=" text-lg sm:text-3xl font-bold text-red-500 text-center flicker"
           style={{ fontFamily: "Nosifer" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: [0.5, 1, 0.5] }}
@@ -73,7 +73,7 @@ export default function PlayerList({
 
         {/* Caption Text */}
         <p 
-          className="text-xl text-white/80 text-center italic flicker-soft"
+          className="text-md sm:text-xl text-white/80 text-center italic flicker-soft"
           style={{ fontFamily: "Creepster" }}
         >
           {CaptionText}
