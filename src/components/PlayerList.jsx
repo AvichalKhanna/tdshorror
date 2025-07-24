@@ -80,7 +80,7 @@ export default function PlayerList({
         </p>
 
         {/* Buttons */}
-        <div className="flex justify-center space-x-4 pt-2">
+        <div className="flex justify-center space-x-4 pt-10 sm:pt-2">
           {Button1 && (
             <button
               onClick={onclickbutton1}
