@@ -96,7 +96,7 @@ useEffect(() => {
                 style={{ width: '180px', height: '220px' }}
               >
                 <img
-                  src={mode.image}
+                  src={`${import.meta.env.BASE_URL}${mode.image}`}
                   alt={mode.name}
                   className="w-full h-full object-cover"
                   loading="eager"

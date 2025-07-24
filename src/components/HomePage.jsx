@@ -17,21 +17,27 @@ export default function Home() {
     const navigate = useNavigate();
 
   const clicksound = () => {
-  const audio = new Audio('/sounds/click.mp3'); // ✅ Use public/ path
-  audio.play()
-}
+    const audio = new Audio(`${import.meta.env.BASE_URL}sounds/click.mp3`);
+    audio.play();
+  };
 
-const loopSpookySound = () => {
-  const audio = new Audio('/sounds/haunted.mp3'); // ✅ Use public/ path
-  audio.loop = true;
+  const loopSpookySound = () => {
+    const audio = new Audio(`${import.meta.env.BASE_URL}sounds/haunted.mp3`);
+    audio.loop = true;
+    audio.volume = 0.4; // Optional: avoid sudden loud jumps
 
-  // ✅ Play only after a user interaction
-  document.body.addEventListener("click", () => {
-    audio.play().catch((err) => {
-      console.error("Playback failed:", err);
-    });
-  }, { once: true }); // Ensures it only binds once
-};
+    // Wait for first user interaction (required by most browsers)
+    const startAudio = () => {
+      audio.play().catch((err) => {
+        console.error("Failed to play spooky sound:", err);
+      });
+      document.body.removeEventListener("click", startAudio);
+    };
+
+    document.body.addEventListener("click", startAudio);
+  };
+
+
     return (
     <>
     <div className='absolute w-[350px] sm:w-fit h-fit

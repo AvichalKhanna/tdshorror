@@ -754,14 +754,14 @@ const handleForfeit = async () => {
 
   
   const clicksound = () => {
-      const audio = new Audio('/sounds/click.mp3'); // ✅ Use public/ path
-      audio.play()
-  }
+    const audio = new Audio(`${import.meta.env.BASE_URL}sounds/click.mp3`);
+    audio.play();
+  };
 
   const phonepull = () => {
-    const audio = new Audio('/sounds/phonepull.ogg');
+    const audio = new Audio(`${import.meta.env.BASE_URL}sounds/phonepull.ogg`);
     audio.play();
-  }
+  };
 
   const [showRadar, setShowRadar] = useState(false);
   const [result, setResult] = useState(0);

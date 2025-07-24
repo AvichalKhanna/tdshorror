@@ -64,10 +64,10 @@ export default function SelectPlayers() {
             },
         })};
 
-    const clicksound = () => {
-      const audio = new Audio('/sounds/click.mp3'); // ✅ Use public/ path
-      audio.play()
-    }
+  const clicksound = () => {
+    const audio = new Audio(`${import.meta.env.BASE_URL}sounds/click.mp3`);
+    audio.play();
+  };
 
 
     useEffect(() => {
