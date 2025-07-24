@@ -202,7 +202,7 @@ const prompts = {
       "A spirit offers you one wish—but there’s a cost. What’s the wish, and what’s the price?"
     ]
   },
- paranormal: {
+ Crazy: {
     truths: [
       "Have you ever heard breathing in your room when no one was there?",
       "What’s the darkest paranormal thought you’ve ever entertained?",
