@@ -51,8 +51,8 @@ export default function PlayerList({
     >
       {/* Central Ritual Zone */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-          flex flex-col items-center justify-center z-50 
-          rounded-2xl p-6 space-y-4 w-[90vw] max-w-sm shadow-xl">
+          flex flex-col items-center justify-center z-50 max-w-xs
+          rounded-2xl p-6 space-y-4 w-[90vw] sm:max-w-sm shadow-xl">
 
         <img 
           src={avatar1}
@@ -62,7 +62,7 @@ export default function PlayerList({
 
         {/* Title Text */}
         <motion.p 
-          className=" text-lg sm:text-3xl font-bold text-red-500 text-center flicker"
+          className=" text-md sm:text-3xl font-bold text-red-500 text-center flicker"
           style={{ fontFamily: "Nosifer" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: [0.5, 1, 0.5] }}
@@ -73,7 +73,7 @@ export default function PlayerList({
 
         {/* Caption Text */}
         <p 
-          className="text-md sm:text-xl text-white/80 text-center italic flicker-soft"
+          className="text-sm sm:text-xl text-white/80 text-center italic flicker-soft"
           style={{ fontFamily: "Creepster" }}
         >
           {CaptionText}
