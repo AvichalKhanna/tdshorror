@@ -24,7 +24,14 @@ export default function Attribution() {
             License: <a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0</a>
         </div>
 
-
+    
+    <p style={{fontFamily:"Nosifer"}}>PhonePull Sound Attribuition: </p>
+        <div className="flex flex-col max-w-4xl">
+        <a href="https://freesound.org/people/pfranzen/sounds/333776/">Unzipping purse, pulling out phone</a> 
+        by <a href="https://freesound.org/people/pfranzen/">pfranzen</a> |
+        License: <a href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0</a>
+        </div>
+        
         <button onClick={() => navigate(-1)} 
         className="bg-gradient-to-b from-white/50 to-red-800/70
             w-fit h-fit px-4 py-3 rounded-3xl text-2xl
