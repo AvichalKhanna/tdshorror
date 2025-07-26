@@ -1,13 +1,20 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
+import family from "../assets/family.jpg"
+import fun from "../assets/fun.jpg"
+import crazy from "../assets/crazy.jpg"
+import extreme from "../assets/extreme.jpg"
+import haunted from "../assets/haunted.jpg"
+import nightmare from "../assets/nightmare.jpg"
+
 const modes = [
-  { name: 'Family', image: '/images/family.jpg' },
-  { name: 'Fun', image: '/images/fun.jpg' },
-  { name: 'Crazy', image: '/images/crazy.jpg' },
-  { name: 'Extreme', image: '/images/extreme.jpg' },
-  { name: 'Haunted', image: '/images/haunted.jpg' },
-  { name: 'Nightmare', image: '/images/nightmare.jpg' },
+  { name: 'Family', image: family },
+  { name: 'Fun', image: fun },
+  { name: 'Crazy', image: crazy },
+  { name: 'Extreme', image: extreme },
+  { name: 'Haunted', image: haunted },
+  { name: 'Nightmare', image: nightmare },
 ];
 
 const preloadImages = (srcArray) => {
@@ -96,7 +103,7 @@ useEffect(() => {
                 style={{ width: '180px', height: '220px' }}
               >
                 <img
-                  src={`${import.meta.env.BASE_URL}${mode.image}`}
+                  src={mode.image}      {/*{`${import.meta.env.BASE_URL}${mode.image}`}*/}
                   alt={mode.name}
                   className="w-full h-full object-cover"
                   loading="eager"

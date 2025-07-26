@@ -73,7 +73,7 @@ export default function PlayerList({
 
         {/* Caption Text */}
         <p 
-          className="text-sm sm:text-xl text-white/80 text-center italic flicker-soft"
+          className="text-sm sm:text-xl max-w-xs sm: max-w-full text-white/80 text-center italic flicker-soft"
           style={{ fontFamily: "Creepster" }}
         >
           {CaptionText}
