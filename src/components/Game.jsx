@@ -622,7 +622,7 @@ export default function Game() {
   const [selectedPlayer, setSelectedPlayer] = useState(null);
 
   const [titleText, setTitleText] = useState("Welcome to TDS-GHOST");
-  const [captionText, setCaptionText] = useState("Conjure the Spirits");
+  const [captionText, setCaptionText] = useState("Please use dekstop mode on phones");
 
   const [button1, setButton1] = useState("Start Game");
   const [button2, setButton2] = useState("");

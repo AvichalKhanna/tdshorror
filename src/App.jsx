@@ -1,8 +1,10 @@
 import Home from './components/HomePage'
 import Game from './components/Game'
+import Attribution from './components/Attribution'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import SelectPlayers from './components/SelectPlayers'
+
 
 function App() {
 
@@ -18,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/game" element={<Game />} />
             <Route path="/selectplayers" element={<SelectPlayers/>}/>
+            <Route path="/attribution" element={<Attribution/>}/>
           </Routes>
 
         </div>

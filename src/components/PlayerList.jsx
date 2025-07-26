@@ -62,7 +62,7 @@ export default function PlayerList({
 
         {/* Title Text */}
         <motion.p 
-          className=" text-md sm:text-3xl font-bold text-red-500 text-center flicker"
+          className=" text-md max-w-[60vw] sm:max-w-3xl sm:text-3xl font-bold text-red-500 text-center flicker"
           style={{ fontFamily: "Nosifer" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: [0.5, 1, 0.5] }}
@@ -73,14 +73,14 @@ export default function PlayerList({
 
         {/* Caption Text */}
         <p 
-          className="text-sm sm:text-xl max-w-xs sm: max-w-full text-white/80 text-center italic flicker-soft"
+          className="text-sm sm:text-xl w-[200px] sm:w-full text-white/80 text-center italic flicker-soft"
           style={{ fontFamily: "Creepster" }}
         >
           {CaptionText}
         </p>
 
         {/* Buttons */}
-        <div className="flex justify-center space-x-4 pt-10 sm:pt-2">
+        <div className="hidden bottom-2 justify-center space-x-4 sm:pt-2 sm:flex">
           {Button1 && (
             <button
               onClick={onclickbutton1}
@@ -110,6 +110,37 @@ export default function PlayerList({
           )}
         </div>
       </div>
+
+       {/* Buttons */}
+        <div className="absolute bottom-[10vh] left-[20vw] flex bottom-2 justify-center space-x-4 sm:pt-2 sm:hidden">
+          {Button1 && (
+            <button
+              onClick={onclickbutton1}
+              className="px-4 py-2 bg-red-700 hover:bg-red-900 text-white rounded-lg text-sm transition-all duration-300 shadow-md border border-red-400"
+              style={{ fontFamily: "Creepster" }}
+            >
+              {Button1}
+            </button>
+          )}
+          {Button2 && (
+            <button
+              onClick={onclickbutton2}
+              className="px-4 py-2 bg-red-700 hover:bg-red-900 text-white rounded-lg text-sm transition-all duration-300 shadow-md border border-red-400"
+              style={{ fontFamily: "Creepster" }}
+            >
+              {Button2}
+            </button>
+          )}
+          {Button3 && (
+            <button
+              onClick={onclickbutton3}
+              className="px-4 py-2 bg-red-700 hover:bg-red-900 text-white rounded-lg text-sm transition-all duration-300 shadow-md border border-red-400"
+              style={{ fontFamily: "Creepster" }}
+            >
+              {Button3}
+            </button>
+          )}
+        </div>
 
       {/* Ghost Player Orbits */}
       {players.map((player, index) => {

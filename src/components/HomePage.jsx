@@ -21,21 +21,56 @@ export default function Home() {
     audio.play();
   };
 
-  const loopSpookySound = () => {
-    const audio = new Audio(`${import.meta.env.BASE_URL}sounds/haunted.mp3`);
-    audio.loop = true;
-    audio.volume = 0.4; // Optional: avoid sudden loud jumps
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
+  const isAudioInitialized = useRef(false);
 
-    // Wait for first user interaction (required by most browsers)
-    const startAudio = () => {
-      audio.play().catch((err) => {
+  const loopSpookySound = () => {
+    if (!isAudioInitialized.current) {
+      audioRef.current = new Audio(`${import.meta.env.BASE_URL}sounds/haunted.mp3`);
+      audioRef.current.loop = true;
+      audioRef.current.volume = 0.5;
+      isAudioInitialized.current = true;
+    }
+
+    if (audioRef.current.paused) {
+      audioRef.current.play().catch((err) => {
         console.error("Failed to play spooky sound:", err);
       });
-      document.body.removeEventListener("click", startAudio);
+      setIsPlaying(true);
+    } else {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      setIsPlaying(false);
+    }
+  };
+
+  useEffect(() => {
+    let wasPlayingBeforeHidden = false;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (audioRef.current && !audioRef.current.paused) {
+          wasPlayingBeforeHidden = true;
+          audioRef.current.pause();
+          setIsPlaying(false);
+        }
+      } else {
+        if (wasPlayingBeforeHidden && audioRef.current) {
+          audioRef.current.play().catch((err) => {
+            console.error("Failed to resume audio:", err);
+          });
+          setIsPlaying(true);
+          wasPlayingBeforeHidden = false;
+        }
+      }
     };
 
-    document.body.addEventListener("click", startAudio);
-  };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
 
 
     return (
@@ -43,7 +78,7 @@ export default function Home() {
     <div className='absolute w-[350px] sm:w-fit h-fit
     bg-white/10 rounded-3xl p-6'>
         
-        <div className='flex flex-col space-y-5 items-center justify-between h-full py-20 sm:py-2'>
+        <div className='flex flex-col space-y-5 items-center justify-between h-full py-15 sm:py-2'>
             <p className='bg-clip-text text-transparent 
             bg-gradient-to-b from-white to-red-800/40
             text-3xl '
@@ -63,7 +98,8 @@ export default function Home() {
             style={{fontFamily:"Pirata One"}}
             >Start Game</button>
 
-            <button className='absolute top-2 right-2 bg-gradient-to-b from-white/50 to-red-800/70
+            <a className='absolute bottom-2 underline' onClick={() => navigate('/attribution')}>Audio Attribution</a>
+            <button className='absolute top-4 right-2 bg-gradient-to-b from-white/50 to-red-800/70
             w-fit h-fit px-4 py-3 rounded-3xl text-xl
             hover:from-red-900/80 hover:to-white/40 transition-all duration-500 
             ease-in-out'
@@ -72,8 +108,10 @@ export default function Home() {
               loopSpookySound();
             }}
             style={{fontFamily:"Pirata One"}}
-            >Play Audio</button>
+            >{isPlaying ? "Pause Audio" : "Play Audio"}
+            </button>
         </div>
+
     </div>
 
     <motion.div
