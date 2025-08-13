@@ -1,20 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import GameModeCover from './GameModeCover';
 
-import family from "../assets/family.jpg"
-import fun from "../assets/fun.jpg"
-import crazy from "../assets/crazy.jpg"
-import extreme from "../assets/extreme.jpg"
-import haunted from "../assets/haunted.jpg"
-import nightmare from "../assets/nightmare.jpg"
 
 const modes = [
-  { name: 'Family', image: family },
-  { name: 'Fun', image: fun },
-  { name: 'Crazy', image: crazy },
-  { name: 'Extreme', image: extreme },
-  { name: 'Haunted', image: haunted },
-  { name: 'Nightmare', image: nightmare },
+  { name: 'Family'},
+  { name: 'Fun'},
+  { name: 'Crazy'},
+  { name: 'Extreme'},
+  { name: 'Haunted'},
+  { name: 'Nightmare'},
 ];
 
 const preloadImages = (srcArray) => {
@@ -28,11 +23,6 @@ export default function ScrollableGameModeSelector({ setMode }) {
   const scrollRef = useRef(null);
   const [selected, setSelected] = useState(0);
 
-  // preload images
-  useEffect(() => {
-    const imageUrls = modes.map((mode) => mode.image);
-    preloadImages(imageUrls);
-  }, []);
 
 useEffect(() => {
   const container = scrollRef.current;
@@ -81,7 +71,7 @@ useEffect(() => {
 
       <div
         ref={scrollRef}
-        className="w-full max-w-6xl flex overflow-x-scroll scroll-smooth hide-scrollbar py-4 sm:px-[9vw]"
+        className="w-full max-w-6xl flex overflow-x-scroll scroll-smooth hide-scrollbar py-4 sm:pl-[9vw] pr-40"
         style={{ height: '260px' }}
       >
         {modes.map((mode, index) => {
@@ -102,13 +92,14 @@ useEffect(() => {
                 `}
                 style={{ width: '180px', height: '220px' }}
               >
-                <img
+                <GameModeCover mode={mode.name}/>
+                {/*<img
                   src={mode.image}
                   alt={mode.name}
                   className="w-full h-full object-cover"
                   loading="eager"
                   draggable="false"
-                />
+                />*/}
               </div>
               <p
                 className={`mt-3 text-base font-semibold transition-all duration-300 ${

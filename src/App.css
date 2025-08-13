@@ -92,3 +92,98 @@
 .animate-shake {
   animation: shake 0.5s ease-in-out;
 }
+
+.family-bg {
+  background: repeating-radial-gradient(circle, #ffeaaa, #ff9e9e 5%, #ffd580 10%);
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.fun-bg {
+  background: linear-gradient(135deg, #ffc0cb, #87cefa, #dda0dd);
+  background-size: 300% 300%;
+  animation: shimmer 6s linear infinite;
+}
+
+.crazy-bg {
+  background: linear-gradient(45deg, #ff007f, #6a0dad, #000000);
+  background-size: 400% 400%;
+  animation: glitchBg 1.5s infinite;
+}
+
+.extreme-bg {
+  background: repeating-linear-gradient(45deg, #330000, #ff0000 10%, #000000 20%);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.haunted-bg {
+  background: radial-gradient(circle at center, #0f0f0f, #000000);
+  animation: flickerBg 1.5s infinite;
+}
+
+.nightmare-bg {
+  background: linear-gradient(120deg, #1a001a, #2b0033, #000000);
+  background-size: 200% 200%;
+  animation: drift 5s ease-in-out infinite;
+}
+
+/* Animations */
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes glitchBg {
+  0% { background-position: 0% 0%; }
+  25% { background-position: 20% 50%; }
+  50% { background-position: 80% 100%; }
+  75% { background-position: 30% 20%; }
+  100% { background-position: 0% 0%; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255,0,0,0.4); }
+  50% { box-shadow: 0 0 40px rgba(255,0,0,0.8); }
+}
+
+@keyframes flickerBg {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes drift {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Optional additional icon animations */
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+.animate-wiggle {
+  animation: wiggle 0.3s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.animate-flicker {
+  animation: flicker 0.2s alternate infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 6s linear infinite;
+}
